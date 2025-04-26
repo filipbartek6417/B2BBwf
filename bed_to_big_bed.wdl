@@ -30,7 +30,7 @@ workflow B2BBwf {
 
   call bedToBigBed {
     input:
-      sorted_bed = sortBed.sorted_bed
+      sorted_bed = sortBed.sorted_bed,
       chrom_sizes = getChromSizes.chrom_sizes
   }
 
