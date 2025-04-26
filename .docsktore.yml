@@ -1,0 +1,12 @@
+version: 1.2
+workflows:
+  - name: B2BBwf
+    subclass: WDL
+    primaryDescriptorPath: /bedToBigBed.wdl
+    testParameterFiles: []
+
+services: []
+
+tools: []
+
+descriptorType: "WDL"
