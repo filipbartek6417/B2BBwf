@@ -67,13 +67,18 @@ task sortBed {
 task getChromSizes {
 
   input {
-    String ucsc_db_name
+    # Would be used with fetchChromSizes
+    # String ucsc_db_name
+    String ucsc_url
   }
 
   command <<<
-    wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/fetchChromSizes
-    chmod +x fetchChromSizes
-    ./fetchChromSizes ${ucsc_db_name} > chrom.sizes
+    # I wanted to use this, but it apparently does not support
+    # the t2t hs1 assembly, so it has to be uglier
+    # wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/fetchChromSizes
+    # chmod +x fetchChromSizes
+    # ./fetchChromSizes ${ucsc_db_name} > chrom.sizes
+    curl -o chrom.sizes ${ucsc_url}
   >>>
 
   output {
