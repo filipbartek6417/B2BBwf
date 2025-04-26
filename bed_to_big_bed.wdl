@@ -10,12 +10,14 @@ workflow B2BBwf {
 
   parameter_meta {
     bed_file: "Input bed for conversion."
-    ucsc_db_name: "The UCSC genome version for which the chrom.sizes fill be used."
+    # ucsc_db_name: "The UCSC genome version for which the chrom.sizes fill be used."
+    ucsc_url: "The UCSC genome url for chrom.sizes."
   }
 
   input {
     File bed_file
-    String ucsc_db_name
+    # String ucsc_db_name
+    String ucsc_url
   }
 
   call sortBed {
@@ -25,7 +27,8 @@ workflow B2BBwf {
 
   call getChromSizes {
     input:
-      ucsc_db_name = ucsc_db_name
+      # ucsc_db_name = ucsc_db_name
+      ucsc_url = ucsc_url
   }
 
   call bedToBigBed {
