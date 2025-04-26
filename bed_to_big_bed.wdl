@@ -61,7 +61,7 @@ task sortBed {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "quay.io/biocontainers/samtools@sha256:9cd15e719101ae8808e4c3f152cca2bf06f9e1ad8551ed43c1e626cb6afdaa02" # 1.19.2--h50ea8bc_1
+    docker: "debian:bullseye-slim"
     preemptible: 1
   }
 
@@ -93,7 +93,7 @@ task getChromSizes {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "quay.io/biocontainers/samtools@sha256:9cd15e719101ae8808e4c3f152cca2bf06f9e1ad8551ed43c1e626cb6afdaa02" # 1.19.2--h50ea8bc_1
+    docker: "debian:bullseye-slim"
     preemptible: 1
   }
 
@@ -120,7 +120,7 @@ task bedToBigBed {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "quay.io/biocontainers/samtools@sha256:9cd15e719101ae8808e4c3f152cca2bf06f9e1ad8551ed43c1e626cb6afdaa02" # 1.19.2--h50ea8bc_1
+    docker: "debian:bullseye-slim"
     preemptible: 1
   }
 
