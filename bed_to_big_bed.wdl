@@ -81,6 +81,7 @@ task getChromSizes {
     # wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/fetchChromSizes
     # chmod +x fetchChromSizes
     # ./fetchChromSizes ${ucsc_db_name} > chrom.sizes
+    echo "${ucsc_url}"
     apt-get update && apt-get install -y curl
     curl -o chrom.sizes ${ucsc_url}
   >>>
