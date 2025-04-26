@@ -4,7 +4,3 @@ workflows:
     subclass: WDL
     primaryDescriptorPath: /bed_to_big_bed.wdl
     testParameterFiles: []
-
-tools: []
-
-descriptorType: "WDL"
