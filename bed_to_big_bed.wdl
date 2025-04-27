@@ -50,7 +50,7 @@ task sortBed {
   }
 
   command <<<
-    sort -k1,1 -k2,2n ${bed_file} > "sorted.bed"
+    sort -k1,1 -k2,2n ~{bed_file} > "sorted.bed"
   >>>
 
   output {
@@ -80,11 +80,11 @@ task getChromSizes {
     # the t2t hs1 assembly, so it has to be uglier
     # wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/fetchChromSizes
     # chmod +x fetchChromSizes
-    # ./fetchChromSizes ${ucsc_db_name} > chrom.sizes
-    echo "URL provided: ${ucsc_url}" && \
+    # ./fetchChromSizes ~{ucsc_db_name} > chrom.sizes
+    echo "URL provided: ~{ucsc_url}" && \
     apt-get update && \
     apt-get install -y wget && \
-    wget -O chrom.sizes ${ucsc_url}
+    wget -O chrom.sizes ~{ucsc_url}
   >>>
 
   output {
@@ -109,9 +109,11 @@ task bedToBigBed {
   }
 
   command <<<
-    wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed
-    chmod +x bedToBigBed
-    ./bedToBigBed ${sorted_bed} ${chrom_sizes} result.bb
+    apt-get update && \
+    apt-get install -y wget && \
+    wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed && \
+    chmod +x bedToBigBed && \
+    ./bedToBigBed ~{sorted_bed} ~{chrom_sizes} result.bb
   >>>
 
   output {
