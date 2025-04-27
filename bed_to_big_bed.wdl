@@ -61,7 +61,7 @@ task sortBed {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "debian:bullseye-slim"
+    docker: "debian:bookworm-slim"
     preemptible: 1
   }
 
@@ -95,7 +95,7 @@ task getChromSizes {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "debian:bullseye-slim"
+    docker: "debian:bookworm-slim"
     preemptible: 1
   }
 
@@ -124,7 +124,7 @@ task bedToBigBed {
     memory: "1 GB"
     cpu: 2
     disks: "local-disk 32 SSD"
-    docker: "debian:bullseye-slim"
+    docker: "debian:bookworm-slim"
     preemptible: 1
   }
 
